@@ -1,0 +1,33 @@
+
+// first section
+.main-img{
+  background-image: url('../../../assets/images/hero_bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 620px;
+
+}
+
+// end first section
+
+      .bd-1 , .bd-2 ,.bd-3{
+        background-size: cover  ;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 500px;
+
+      }
+      .bd-1 , .bd-2 ,.bd-3 img{
+width: 100%;
+        height: 500px;
+
+      }
+
+.let-text-right{
+  text-align: right!important;
+}
+.let-text-left{
+  text-align: left!important;
+}

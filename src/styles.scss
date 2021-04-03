@@ -1,0 +1,168 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+// @import '_variables';
+
+@import '~bootstrap/scss/bootstrap';
+
+// @import "~animate.css/animate.min.css";
+@import '~ngx-toastr/toastr';
+
+// our colors
+
+body{
+  font-family: 'Cairo', sans-serif;
+}
+
+$golden:#b49c73;
+
+$dark-grey1:#37373f;
+$dark-grey2:#2d2d34;
+
+
+// first section in all components
+
+.untree_co-section {
+  background-color: #37373f;
+  padding: 100px 0;
+  position: relative; }
+
+  .untree_co-section p,label{
+    color :white
+  }
+  .untree_co-section form input,textarea{
+background: none;
+outline: none;
+color: white;
+border: none;
+border-bottom: 3px solid #b49c73; }
+.untree_co-section form input,textarea :focus{
+  background: none;
+  outline: none;
+
+  border: none;
+  border-bottom: 3px solid #b49c73;
+ }
+  @media (max-width: 991.98px) {
+    .untree_co-section {
+      padding: 50px 0; } }
+  .untree_co-section .heading {
+    font-size: 50px; }
+    .untree_co-section .heading strong {
+      font-weight: 700; }
+    @media (max-width: 991.98px) {
+      .untree_co-section .heading {
+        font-size: 30px; } }
+    .untree_co-section .heading.border-b {
+      position: relative; }
+      .untree_co-section .heading.border-b:before {
+        width: 100px;
+        height: 1px;
+        background: #000000;
+        left: 0;
+        content: ""; }
+
+.service-sm {
+  font-size: 16px; }
+  .service-sm .text {
+    color: #b49c73; }
+    .service-sm .text span {
+      font-size: 14px;
+      color: #b2b2b8; }
+  .service-sm .wrap-icon {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 70px;
+    flex: 0 0 70px;
+    width: 70px;
+    height: 70px;
+    position: relative;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin-right: 20px; }
+    .service-sm .wrap-icon > span {
+      color: #ffffff;
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      font-size: 30px;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      font-size: 30px; }
+
+      .third-section{
+background-color: #2d2d34;
+
+      }
+
+
+.untree_co--hero {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: relative; }
+  .untree_co--hero p {
+    color: rgb(0, 0, 0)!important;
+  }
+  .untree_co--hero, .untree_co--hero > .container > .row {
+    height: 100vh;
+    min-height: 650px; }
+  .untree_co--hero.overlay {
+    position: relative; }
+    .untree_co--hero.overlay:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0; }
+      @media (max-width: 991.98px) {
+        .untree_co--hero.overlay:before {
+          background: rgba(255, 255, 255, 0.6); } }
+  .untree_co--hero .intro strong {
+    font-weight: 700; }
+  .untree_co--hero .intro h1 {
+    font-size: 60px;
+    color: #000000; }
+    @media (max-width: 991.98px) {
+      .untree_co--hero .intro h1 {
+        font-size: 38px; } }
+  .untree_co--hero .intro p {
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.5); }
+    @media (max-width: 991.98px) {
+      .untree_co--hero .intro p {
+        color: #000000; } }
+  .untree_co--hero .intro .intro-desc {
+    max-width: 490px;
+    margin: 0 auto;
+    position: relative;
+    padding-left: 30px; }
+    @media (max-width: 991.98px) {
+      .untree_co--hero .intro .intro-desc {
+        padding-left: 0px; } }
+    .untree_co--hero .intro .intro-desc a {
+      border-bottom: 1px solid #b49c73; }
+
+
+
+      .text-golden{
+        color: $golden;
+      }
+
+      .btn-golden{
+        background-color:$golden ;
+        color: white;
+      }
+      .btn-golden:hover{
+        background-color:$golden ;
+        color: white;
+      }
+
+      .first-section {
+        background-color:#2d2d34;;
+        padding-top: 150px ;
+        padding-bottom: 150px ;
+      color: white;
+      }
