@@ -1,7 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar-light  mb-3" [ngClass]="{'navbar-inverse': scrolled}" >
+<nav class="navbar navbar-expand-lg navbar-light  mb-3" [ngClass]="{'navbar-inverse': scrolled}"*ngIf="nav.visible" >
   <!--  -->
   <div class="container">
-    <a class="navbar-brand"  [routerLink]="'.'"><img class="logo" src="../../assets/images/logo.jpeg" alt="logo"></a>
+    <a class="navbar-brand" style="margin-right:70%;"   [routerLink]="'.'"><img class="logo" src="../../assets/images/logo.jpeg" alt="logo"></a>
 
     <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
       &#9776;
@@ -13,12 +13,20 @@
       <!-- Step 2: Add the ngbCollapse directive to the element below. -->
       <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse " id="navbarSupportedContent" >
         <!-- (lang !== 'ar')? text-right: text-left -->
-        <ul class="navbar-nav mr-auto text-center">
+        <ul class="navbar-nav mr-auto text-center ">
           <li class="nav-item ">
             <!-- Step 4: Close the menu when a link is clicked. -->
-            <a class="nav-link" [routerLink]="'home'" (click)="isMenuCollapsed = true" routerLinkActive="under-line-nav-tabs">Home</a>
+            <a class="nav-link mr-3" [routerLink]="'home'" (click)="isMenuCollapsed = true" routerLinkActive="under-line-nav-tabs">Home</a>
           </li>
-
+          <li class="nav-item ">
+            <button class="btn btn-golden" [routerLink]="'/auth/login'" (click)="isMenuCollapsed = true" [hidden]="isLogged()">login</button>
+          </li>
+          <li class="nav-item ">
+            <button class=" btn btn-golden"  (click)="isMenuCollapsed = true ; logout()"  [hidden]="!isLogged()">logout</button>
+          </li>
+          <li class="nav-item ">
+            <p class="nav-link "   [hidden]="!isLogged()">hello</p>
+          </li>
         </ul>
       </div>
 

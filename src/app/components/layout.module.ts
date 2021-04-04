@@ -7,15 +7,19 @@ import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
 import { StudentComponent } from './student/student.component';
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+import { LoginComponent } from '../auth/login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
-  declarations: [HomeComponent,PageNotFoundComponent, StudentComponent],
+  declarations: [HomeComponent,PageNotFoundComponent, StudentComponent,LoginComponent],
   imports: [
     CommonModule,
     LayoutRoutingModule,
     NgbModule,
     NgbPaginationModule,
+    FormsModule,
+    ReactiveFormsModule
 
   ],exports:[
   ]

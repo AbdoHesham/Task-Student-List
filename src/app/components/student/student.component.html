@@ -1,1 +1,24 @@
-<p>student works!</p>
+<div class="card ">
+  <header>
+    <img [src]="!data?.avatar? '../../../assets/images/user-sign-icon-person-symbol-human-avatar-vector-12693195.jpg': data?.avatar" onerror="this.src='../../../assets/images/user-sign-icon-person-symbol-human-avatar-vector-12693195.jpg';" alt=''>
+    <p class="face__name">{{data?.email}}</p>
+    <h4> {{data?.first_name}} {{data?.last_name}} </h4>
+    <button class="btn btn-info btn-lg  p-1 mt-2" [routerLink]="'/home'"> go back</button>
+  </header>
+  <div class="card_body">
+    <ul class="social">
+      <li class="twitter">
+        <h3>14.4K</h3>
+        <p>Twitter</p>
+      </li>
+      <li class="facebook">
+        <h3>239.2K</h3>
+        <p>Facebook</p>
+      </li>
+      <li class="instagram">
+        <h3>404K</h3>
+        <p>Instagram</p>
+      </li>
+      </ul>
+  </div>
+</div>

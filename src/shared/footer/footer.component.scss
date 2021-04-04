@@ -1,7 +1,8 @@
 
 .site-footer {
   padding: 70px 0;
-  background-color: #2d2d34; }
+  background-color: #2d2d34;
+max-width: 100%; }
   .site-footer a {
     position: relative;
     display: inline-block;
@@ -64,4 +65,18 @@
         }
 .final-section-in-footer p{
   color :white
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (max-width: 768px) {
+
+  /* Pull out the header and footer */
+  .site-footer {
+    position: fixed;
+    bottom: 0;
+    padding: 70px 0;
+  background-color: #2d2d34;
+max-width: 100%;
+  }
+
 }

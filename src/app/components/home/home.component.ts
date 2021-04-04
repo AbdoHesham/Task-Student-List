@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { FooterService } from 'src/shared/services/service-footer/footer.service';
+import { NavService } from 'src/shared/services/service-nav/nav.service';
 import { HomeService } from '../../../shared/services/home/home.service';
 const FILTER_PAG_REGEX = /[^0-9]/g;
 
@@ -22,11 +24,15 @@ export class HomeComponent implements OnInit {
   constructor(
     private router: Router,
     private toastr: ToastrService,
-    private HomeService: HomeService
+    private HomeService: HomeService,
+    public ftr : FooterService,
+    public nav: NavService,
   ) {}
 
   ngOnInit() {
     this.getAllStudents(this.page, this.studentPerPage);
+    this.nav.show();
+    this.ftr.show();
   }
 
   show() {
@@ -38,13 +44,10 @@ export class HomeComponent implements OnInit {
       (res) => {
         this.data = res;
         this.ourData = this.data.data;
-        console.log(  this.ourData)
         this.totallength = this.ourData.length;
         this.totallengthForData=this.data.total;
-        console.log("totallength + "+this.totallength);
         this.totalPages = this.data.total_pages;
-        console.log(' total pages  +' + this.totalPages);
-        console.table(this.data);
+
       },
       (err) => {
         console.log(err);

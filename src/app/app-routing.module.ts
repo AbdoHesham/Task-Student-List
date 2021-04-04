@@ -5,7 +5,6 @@ const routes: Routes = [
   { path: '', loadChildren: () => import('./components/layout.module').then(m => m.LayoutModule)  },
 
 
-
 ];
 
 @NgModule({

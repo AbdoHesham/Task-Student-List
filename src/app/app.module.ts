@@ -20,7 +20,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    NgbCollapseDirective
+    NgbCollapseDirective,
+
   ],
   imports: [
     BrowserModule,

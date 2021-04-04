@@ -1,63 +1,69 @@
-
 <div class="container">
-  <table class="table table-striped">
+  <div class="d-flex justify-content-center mb-2">
+    <h4>
+      our students
+    </h4>
+  </div>
+  <table class="table table-striped table-bordered">
     <thead>
-        <tr class="table-head">
-      <th scope="col">No</th>
-      <th scope="col">first name</th>
-      <th scope="col"> last name</th>
-      <th scope="col">Email</th>
-      <th scope="col">student image</th>
-      <th scope="col">see more</th>
-    </tr>
-  </thead>
-  <tbody>
+      <tr class="table-head">
+        <th scope="col">No</th>
+        <th scope="col">first name</th>
+        <th scope="col">last name</th>
 
-    <!-- ; [ngbTooltip]="user.name" -->
-    <tr *ngFor="let sudent of ourData ; index as i " >
-      <th scope="row"> {{i+1}} </th>
-      <td >{{sudent?.first_name}}</td>
-      <td >{{sudent?.last_name}}</td>
-      <td >{{sudent?.email}}  </td>
-      <td > <img src="{{sudent?.avatar}}" class="rounded-circle"> </td>
-
-      <td> <i class="ft-more-vertical info ml-3" ></i> </td>
+        <th scope="col">see more</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- ; [ngbTooltip]="user.name" -->
+      <tr *ngFor="let sudent of ourData; index as i">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ sudent?.first_name }}</td>
+        <td>{{ sudent?.last_name }}</td>
 
 
-    </tr>
-    <p>A pagination with customized pages:</p>
-    <ngb-pagination [collectionSize]="totallengthForData" [(page)]="page" [boundaryLinks]="true">
-        <ng-template ngbPaginationPages let-page let-pages="pages">
-            <li class="ngb-custom-pages-item" *ngIf="totalPages.length > 0">
-                <div class="form-group d-flex flex-nowrap px-2">
-                  <label
-                      id="paginationInputLabel"
-                      for="paginationInput"
-                      class="col-form-label mr-2 ml-1"
-                  >Page</label>
-                  <input #i
-                      type="text"
-                      inputmode="numeric"
-                      pattern="[0-9]*"
-                      class="form-control custom-pages-input"
-                      id="paginationInput"
-                      [value]="page"
-                      (keyup.enter)="selectPage(i.value)"
-                      (blur)="selectPage(i.value)"
-                      (input)="formatInput($any($event).target)"
-                      aria-labelledby="paginationInputLabel paginationDescription"
-                      style="width: 2.5rem"
-                  />
-                  <span id="paginationDescription" class="col-form-label text-nowrap px-2">
-                      of {{totalPages}}</span>
-                </div>
-            </li>
-        </ng-template>
-    </ngb-pagination>
-    <hr>
-  </tbody>
-
+        <td><a [routerLink]="['/student',sudent.id]" class="text-golden"><i class="fa fa-info-circle"></i> more Details </a></td>
+      </tr>
+    </tbody>
   </table>
-
+  <div class="d-flex justify-content-center mb-5">
+    <ngb-pagination
+      [collectionSize]="totallengthForData"
+      [(page)]="page"
+      [boundaryLinks]="true"
+    >
+      <ng-template ngbPaginationPages let-page let-pages="pages">
+        <li class="ngb-custom-pages-item" *ngIf="totalPages.length > 0">
+          <div class="form-group d-flex flex-nowrap px-2">
+            <label
+              id="paginationInputLabel"
+              for="paginationInput"
+              class="col-form-label mr-2 ml-1"
+              >Page</label
+            >
+            <input
+              #i
+              type="text"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              class="form-control custom-pages-input"
+              id="paginationInput"
+              [value]="page"
+              (keyup.enter)="selectPage(i.value)"
+              (blur)="selectPage(i.value)"
+              (input)="formatInput($any($event).target)"
+              aria-labelledby="paginationInputLabel paginationDescription"
+              style="width: 2.5rem"
+            />
+            <span
+              id="paginationDescription"
+              class="col-form-label text-nowrap px-2"
+            >
+              of {{ totalPages }}</span
+            >
+          </div>
+        </li>
+      </ng-template>
+    </ngb-pagination>
+  </div>
 </div>
-

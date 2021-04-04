@@ -1,0 +1,43 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="col-left">
+      <div class="login-text">
+        <h2>Welcome Back</h2>
+      </div>
+    </div>
+    <div class="col-right">
+      <div class="login-form">
+        <h2>Login</h2>
+        <form [formGroup]="loginForm">
+          <div class="form-group">
+
+              <label>Username or email address<span>*</span></label>
+              <input type="text" placeholder="Username or Email" formControlName="email" />
+              <small class=" text-danger" *ngIf="f.email.touched && f.email.invalid">
+                this feild is required
+            </small>
+                <small class=" text-danger" *ngIf="f.email.errors?.email">
+                You Must Enter like this Example@mail.com!</small>
+          </div>
+          <div class="form-group">
+
+              <label>Password<span>*</span></label>
+              <input type="password" placeholder="Password"  formControlName="password" [type]="show ? 'text' : 'password'"/>
+              <small class="text-danger" *ngIf="f.password.touched && f.password.invalid">
+                this feild is required
+            </small>
+
+                <small class="text-danger" *ngIf="f.password.errors?.minlength">
+                minlength is must be 8 ckaracters!!</small>
+          </div>
+          <a style="cursor: pointer;" (click)="showPass()">show password </a>
+
+          <p>
+            <input type="submit" (click)="login()" value="Sing In" />
+          </p>
+          <p></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
