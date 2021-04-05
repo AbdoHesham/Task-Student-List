@@ -12,6 +12,8 @@ export class HomeService {
   headeroption:any;
   token: any;
   baseUrl=environment.baseUrl
+
+
 private subject=new BehaviorSubject<Student[]>([]);
 students$:Observable<Student[]> =this.subject.asObservable();
 
@@ -38,7 +40,7 @@ students$:Observable<Student[]> =this.subject.asObservable();
   let params = new HttpParams();
   params = params.append("page", page.toString());
   params = params.append("perPage", perPage.toString());
-  params = params.append("pagination", "true");
+  // params = params.append("pagination", "true");
 
   return this.http.get (`${this.baseUrl}?${params}`,this.headeroption)
 }

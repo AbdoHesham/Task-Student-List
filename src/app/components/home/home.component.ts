@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private router: Router,
     private toastr: ToastrService,
-    private HomeService: HomeService,
+    public HomeService: HomeService,
     public ftr: FooterService,
     public nav: NavService
   ) {}

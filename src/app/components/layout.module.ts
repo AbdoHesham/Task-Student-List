@@ -9,6 +9,7 @@ import { StudentComponent } from './student/student.component';
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from '../auth/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NgbModule,
     NgbPaginationModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
 
   ],exports:[
   ]
