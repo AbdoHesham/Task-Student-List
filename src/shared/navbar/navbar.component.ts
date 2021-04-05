@@ -12,7 +12,7 @@ import { NavService } from '../services/service-nav/nav.service';
 export class NavbarComponent implements OnInit {
   // @HostListener('window:scroll', ['$event'])
   scrolled:boolean=false
-  geartingName:string ='';
+  geartingName:[] =[];
   @HostListener("document:scroll", [])
   onWindowScroll() {
   (window.pageYOffset > 60) ? this.scrolled = true : this.scrolled = false
@@ -34,7 +34,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.changeLang()
-    // this.geartingName=JSON.parse(localStorage.getItem('userdata')).email;
+    this.geartingName=JSON.parse(localStorage.getItem('userdata')|| '{}').email
 
 
   }

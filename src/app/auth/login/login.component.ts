@@ -60,7 +60,6 @@ export class LoginComponent implements OnInit {
       this.toastr.error("Please Enter Valid password")
     }
     else {
-
              localStorage.setItem('userdata',  JSON.stringify(this.userCredentials));
             //just for development
             this.toastr.success("you are logged in successfully");

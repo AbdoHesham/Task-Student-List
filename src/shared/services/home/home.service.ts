@@ -1,17 +1,19 @@
 import {Injectable} from '@angular/core';
 
-import { Observable} from 'rxjs';
+import { BehaviorSubject, Observable} from 'rxjs';
 
 import { environment } from '../../../environments/environment';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { Student } from 'src/shared/models/student';
 
 
 @Injectable({providedIn: 'root'})
 export class HomeService {
   headeroption:any;
   token: any;
-
   baseUrl=environment.baseUrl
+private subject=new BehaviorSubject<Student[]>([]);
+students$:Observable<Student[]> =this.subject.asObservable();
 
   getToken() {
     // this.token = localStorage.getItem('SouqSquareToken');
@@ -31,11 +33,12 @@ export class HomeService {
   }
 
 
-getStudents(page :number,perPage:number ):Observable<any>{
+ getStudents(page :number,perPage:number ):Observable<any>{
   this.getToken();
   let params = new HttpParams();
   params = params.append("page", page.toString());
   params = params.append("perPage", perPage.toString());
+  params = params.append("pagination", "true");
 
   return this.http.get (`${this.baseUrl}?${params}`,this.headeroption)
 }

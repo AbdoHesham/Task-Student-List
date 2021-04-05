@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Student } from 'src/shared/models/student';
 import { FooterService } from 'src/shared/services/service-footer/footer.service';
 import { NavService } from 'src/shared/services/service-nav/nav.service';
 import { HomeService } from '../../../shared/services/home/home.service';
@@ -19,18 +20,21 @@ export class HomeComponent implements OnInit {
   totallength: any;
   ourData: any;
   totallengthForData: any;
+  pageSize = 6;
+  STUDENTS: Student[] = [];
+
   // currentLang: string;
 
   constructor(
     private router: Router,
     private toastr: ToastrService,
     private HomeService: HomeService,
-    public ftr : FooterService,
-    public nav: NavService,
+    public ftr: FooterService,
+    public nav: NavService
   ) {}
 
   ngOnInit() {
-    this.getAllStudents(this.page, this.studentPerPage);
+    this.getAllStudents(this.page,this.pageSize);
     this.nav.show();
     this.ftr.show();
   }
@@ -39,30 +43,33 @@ export class HomeComponent implements OnInit {
     this.toastr.success('done');
   }
 
-  getAllStudents(pageNum: number, studentPerPage: number) {
-    this.HomeService.getStudents(pageNum, studentPerPage).subscribe(
+  getAllStudents(pageNum: number,pageSize:number  ) {
+    this.HomeService.getStudents(pageNum, pageSize).subscribe(
       (res) => {
         this.data = res;
+        console.log(this.data);
         this.ourData = this.data.data;
+        this.STUDENTS = this.ourData;
         this.totallength = this.ourData.length;
-        this.totallengthForData=this.data.total;
-        this.totalPages = this.data.total_pages;
-
+        this.totallengthForData = this.data.total;
       },
       (err) => {
         console.log(err);
       }
     );
   }
-  selectPage(page: string) {
-    this.page = parseInt(page, 10) || 1;
-  }
 
-  formatInput(input: HTMLInputElement) {
-    input.value = input.value.replace(FILTER_PAG_REGEX, '');
-  }
+  students: Student[] = [];
   //pagination
-  callPage(number: number, studentPerPage: number) {
-    this.getAllStudents(+number - 1, studentPerPage);
+  callPage(number: number) {
+    // this.students = this.STUDENTS.map((student, i) => ({
+    //   id: i + 1,
+    //   ...student,
+    // })).slice(
+    //   (this.page - 1) * this.pageSize,
+    //   (this.page - 1) * this.pageSize + this.pageSize
+    // );
+    this.getAllStudents(+number,this.pageSize);
+    console.log(this.pageSize)
   }
 }
